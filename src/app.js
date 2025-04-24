@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import studentRoutes from './routes/students.js';
+import certificateRoutes from './routes/certificates.js';
 
 // Carga variables de entorno
 dotenv.config();
@@ -14,6 +15,7 @@ const app = express();
 // Middleware para parsear JSON
 app.use(express.json());
 app.use('/api/students', studentRoutes);
+app.use('/api/certificates', certificateRoutes);
 
 // Rutas de prueba
 app.get('/', (req, res) => {
